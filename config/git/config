@@ -1,0 +1,16 @@
+[user]
+    name = boenshao
+    email = boenshao@gmail.com
+
+[core]
+    editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    side-by-side = true
+
+[includeIf "gitdir:~/repo-work/"]
+    path = ~/repo-work/.gitconfig
