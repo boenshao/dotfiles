@@ -12,5 +12,8 @@
 [delta]
     side-by-side = true
 
+[diff "sopsdiffer"]
+    textconv = "sops decrypt"
+
 [includeIf "gitdir:~/repo-work/"]
     path = ~/repo-work/.gitconfig
