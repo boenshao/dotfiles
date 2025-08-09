@@ -14,12 +14,14 @@ confirm-close-surface = false
 
 cursor-style = block
 bold-is-bright = true
+# gruvbox-material-hard-dark
+# https://github.com/alacritty/alacritty-theme/blob/master/themes/gruvbox_material_hard_dark.toml
 background = #1d2021
 foreground = #d4be98
-selection-background = #c1b191
-selection-foreground = #635b53
-cursor-color = #d9c7a5
-palette = 0=#665c54
+selection-background = #d4be98
+selection-foreground = #1d2021
+cursor-color = #d4be98
+palette = 0=#32302f
 palette = 1=#ea6962
 palette = 2=#a9b665
 palette = 3=#d8a657
@@ -27,7 +29,8 @@ palette = 4=#7daea3
 palette = 5=#d3869b
 palette = 6=#89b482
 palette = 7=#d4be98
-palette = 8=#665c54
+# brigher than original
+palette = 8=#928374
 palette = 9=#ea6962
 palette = 10=#a9b665
 palette = 11=#d8a657
