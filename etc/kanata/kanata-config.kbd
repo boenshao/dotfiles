@@ -1,0 +1,21 @@
+;; defsrc is still necessary
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps
+)
+
+(defvar
+  tap-time 150
+  hold-time 200
+)
+
+(defalias
+  escctrl (macro M-(spc))
+)
+
+(deflayer base
+  @escctrl
+)
