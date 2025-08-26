@@ -10,7 +10,7 @@ export ZDATA="$XDG_DATA_HOME/zsh"
 export PATH="$HOME/.local/bin:$PATH"
 
 # golang
-[ -d "/usr/local/go/bin" ] && export PATH="$PATH:/usr/local/go/bin"
+[ -d "$HOME/.local/go/bin" ] && export PATH="$PATH:$HOME/.local/go/bin"
 if command -v go >/dev/null 2>&1; then
     export PATH="$PATH:$(go env GOPATH)/bin"
 fi

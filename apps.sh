@@ -37,7 +37,13 @@ curl -fsSL https://bun.com/install | bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 # rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# kubectl helm go
+# go
+wget -O - https://go.dev/dl/go1.20.5.linux-amd64.tar.gz | tar -xzf - -C ~/.local
+# kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+mv ./kubectl ~/.local/bin/kubectl
+# TODO: helm
 
 # docker, https://docs.docker.com/engine/install/ubuntu/
 sudo install -m 0755 -d /etc/apt/keyrings
