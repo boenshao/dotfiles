@@ -24,13 +24,12 @@ dra download -i -s "fd-v{tag}-x86_64-unknown-linux-gnu.tar.gz" -o ~/.local/bin/ 
 dra download -i -s "hexyl-v{tag}-x86_64-unknown-linux-gnu.tar.gz" -o ~/.local/bin/ sharkdp/hexyl
 # ripgrep
 dra download -i -s "ripgrep-{tag}-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ BurntSushi/ripgrep
+# fzf
+dra download -i -s "fzf-{tag}-linux_amd64.tar.gz" -o ~/.local/bin/ junegunn/fzf
 # sops
 dra download -i -s "sops-v{tag}.linux.amd64" -o ~/.local/bin/ getsops/sops
 # vim
 dra download -i -s "nvim-linux-x86_64.appimage" -o ~/.local/bin/ neovim/neovim
-# fzf, https://github.com/junegunn/fzf#installation
-git clone --depth 1 https://github.com/junegunn/fzf.git "${XDG_DATA_HOME:-$HOME/.local/share}/fzf"
-"${XDG_DATA_HOME:-$HOME/.local/share}/fzf/install" --xdg --no-bash --no-fish
 # kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
