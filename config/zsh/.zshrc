@@ -63,6 +63,8 @@ if check_cmd uv; then
 fi
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# kubectl completions
+[ -s "$ZSH_CACHE_DIR/completions/_kubectl" ] && source "$ZSH_CACHE_DIR/completions/_kubectl"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
