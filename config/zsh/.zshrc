@@ -6,6 +6,7 @@ check_cmd () { command -v "$1" >/dev/null }
 is_in_vscode () { [ "$TERM_PROGRAM" = "vscode" ] }
 is_in_vim () { [ -n "$VIMRUNTIME" ] }
 is_in_tmux () { [ -n "$TMUX" ] }
+is_in_zellij () { [ -n "$ZELLIJ" ] }
 
 # zsh
 HISTFILE="$ZDATA/zsh_history"
@@ -73,7 +74,7 @@ fi
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 export PF_INFO="ascii title os host kernel shell uptime palette"
-if check_cmd pfetch && ! is_in_vscode && ! is_in_vim && ! is_in_tmux; then
+if check_cmd pfetch && ! is_in_vscode && ! is_in_vim && ! is_in_tmux && ! is_in_zellij; then
     pfetch
 fi
 
@@ -99,6 +100,9 @@ if check_cmd exa; then
 fi
 if check_cmd eza; then
     alias ls="eza"
+fi
+if check_cmd zoxide; then
+    eval "$(zoxide init zsh)"
 fi
 
 # python venv
