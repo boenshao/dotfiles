@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+# prepare
+sudo apt update
+sudo apt install apt-transport-https curl wget gpg ca-certificates
+
 # platform sepcific
 # sudo apt install gnome-tweaks
 # sudo apt install powertop
@@ -18,12 +22,6 @@ echo \
   $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-# aws
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-./aws/install --bin-dir ~/.local/bin --install-dir ~/.local/aws-cli && rm -rf awscliv2.zip ./aws
-sudo apt install amazon-ecr-credential-helper
 
 # terraform, https://developer.hashicorp.com/terraform/install#linux
 wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg

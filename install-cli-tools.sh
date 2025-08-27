@@ -6,10 +6,11 @@ set -euo pipefail
 mkdir -p "$HOME/.local/bin"
 
 # prepare
-sudo apt update && sudo apt install apt-transport-https curl wget gpg ca-certificates
+sudo apt update
+sudo apt install apt-transport-https curl wget gpg ca-certificates
 
 # basics
-sudo apt update && sudo apt install jq tmux cmake hexedit htop
+sudo apt install jq tmux cmake hexedit htop
 # dra
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/devmatteini/dra/refs/heads/main/install.sh | bash -s -- --to ~/.local/bin
 # bat
@@ -28,10 +29,21 @@ dra download -i -s "ripgrep-{tag}-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/
 dra download -i -s "fzf-{tag}-linux_amd64.tar.gz" -o ~/.local/bin/ junegunn/fzf
 # sops
 dra download -i -s "sops-v{tag}.linux.amd64" -o ~/.local/bin/ getsops/sops
-# vim
-dra download -i -s "nvim-linux-x86_64.appimage" -o ~/.local/bin/ neovim/neovim
+# awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+./aws/install --bin-dir ~/.local/bin --install-dir ~/.local/aws-cli --update && rm -rf awscliv2.zip ./aws
+# ecr-credential-helper
+wget https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.10.1/linux-amd64/docker-credential-ecr-login -P ~/.local/bin
+chmod +x ~/.local/bin/docker-credential-ecr-login
 # kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 mv ./kubectl ~/.local/bin/kubectl
 # TODO: helm
+
+# vim
+dra download -i -s "nvim-linux-x86_64.appimage" -o ~/.local/bin/ neovim/neovim
+# vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'

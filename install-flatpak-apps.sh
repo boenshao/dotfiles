@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-# flatpak
 flatpak install flathub io.github.ungoogled_software.ungoogled_chromium
 flatpak install flathub com.brave.Browser
 flatpak install flathub io.dbeaver.DBeaverCommunity

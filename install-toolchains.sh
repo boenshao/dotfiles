@@ -6,9 +6,9 @@ set -euo pipefail
 mkdir -p "$HOME/.local/bin"
 
 # prepare
-sudo apt update && sudo apt install apt-transport-https curl wget gpg ca-certificates
+sudo apt update
+sudo apt install apt-transport-https curl wget gpg ca-certificates
 
-# toolchain
 # bun
 curl -fsSL https://bun.com/install | bash
 # uv
