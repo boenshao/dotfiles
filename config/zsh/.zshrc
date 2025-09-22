@@ -128,5 +128,13 @@ activate-closest-python-venv() {
 add-zsh-hook chpwd activate-closest-python-venv
 activate-closest-python-venv
 
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/home/shao/.opam/opam-init/init.zsh' ]] || source '/home/shao/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+
 # load local config
 [ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
