@@ -16,6 +16,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # go
-wget -O - https://go.dev/dl/go1.20.5.linux-amd64.tar.gz | tar -xzf - -C ~/.local
+wget -O - https://go.dev/dl/go1.25.1.linux-amd64.tar.gz | tar -xzf - -C ~/.local
 # opam
 bash -c "sh <(curl -fsSL https://opam.ocaml.org/install.sh)"
