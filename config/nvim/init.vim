@@ -78,7 +78,7 @@ nmap <leader>k <C-w>k
 nmap <leader>l <C-w>l
 
 "remap
-vmap p pgvy
+vmap p P
 xmap > >gv
 xmap < <gv
 xmap ghs <Plug>(GitGutterStageHunk)
