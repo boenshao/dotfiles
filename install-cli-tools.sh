@@ -29,6 +29,8 @@ dra download -i -s "ripgrep-{tag}-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/
 dra download -i -s "fzf-{tag}-linux_amd64.tar.gz" -o ~/.local/bin/ junegunn/fzf
 # sops
 dra download -i -s "sops-v{tag}.linux.amd64" -o ~/.local/bin/sops getsops/sops
+# duckdb
+dra download -i -s "duckdb_cli-linux-amd64.zip" -o ~/.local/bin/ duckdb/duckdb
 # awscli
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
