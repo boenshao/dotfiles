@@ -15,6 +15,9 @@ if command -v go >/dev/null 2>&1; then
     export PATH="$PATH:$(go env GOPATH)/bin"
 fi
 
+# zig
+[ -d "$HOME/.local/zig" ] && export PATH="$PATH:$HOME/.local/zig"
+
 # haskell
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
