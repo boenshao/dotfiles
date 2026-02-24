@@ -6,7 +6,7 @@ set -euo pipefail
 sudo apt update
 sudo apt install apt-transport-https curl wget gpg ca-certificates
 
-# platform sepcific
+# platform specific
 # sudo apt install gnome-tweaks
 # sudo apt install powertop
 # sudo apt install fprintd libpam-fprintd
