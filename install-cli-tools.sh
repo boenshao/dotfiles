@@ -33,6 +33,8 @@ dra download -i -s "sops-v{tag}.linux.amd64" -o ~/.local/bin/sops getsops/sops
 dra download -i -s "duckdb_cli-linux-amd64.zip" -o ~/.local/bin/ duckdb/duckdb
 # zellij
 dra download -i -s "zellij-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ zellij-org/zellij
+# presenterm
+dra download -i -s "presenterm-{tag}-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ mfontanini/presenterm
 # tflint
 dra download -i -s "tflint_linux_amd64.zip" -o ~/.local/bin/ terraform-linters/tflint
 # tfsec
