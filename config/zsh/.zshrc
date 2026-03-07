@@ -138,5 +138,3 @@ activate-closest-python-venv
 
 # load local config
 [ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
-
-. "$HOME/.local/share/../bin/env"
