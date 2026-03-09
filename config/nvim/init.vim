@@ -142,6 +142,8 @@ set backspace=indent,eol,start
 set mouse=a
 set splitbelow
 set splitright
+set spelllang=en_us
+set spell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
