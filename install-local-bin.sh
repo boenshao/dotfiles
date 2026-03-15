@@ -9,10 +9,10 @@ mkdir -p "$HOME/.local/bin"
 sudo apt update
 sudo apt install apt-transport-https curl wget gpg ca-certificates
 
-# basics
-sudo apt install jq tmux cmake hexedit htop
 # dra
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/devmatteini/dra/refs/heads/main/install.sh | bash -s -- --to ~/.local/bin
+# jq
+dra download -i -s "jq-linux-amd64" -o ~/.local/bin/ jqlang/jq
 # bat
 dra download -i -s "bat-v{tag}-x86_64-unknown-linux-gnu.tar.gz" -o ~/.local/bin/ sharkdp/bat
 # delta
@@ -54,6 +54,7 @@ chmod +x ~/.local/bin/docker-credential-ecr-login
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 mv ./kubectl ~/.local/bin/kubectl
+# TODO: gh
 # TODO: helm
 
 # vim

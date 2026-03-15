@@ -6,6 +6,9 @@ set -euo pipefail
 sudo apt update
 sudo apt install apt-transport-https curl wget gpg ca-certificates
 
+# basics
+sudo apt install tmux cmake htop ffmpeg
+
 # platform specific
 # sudo apt install gnome-tweaks
 # sudo apt install powertop
