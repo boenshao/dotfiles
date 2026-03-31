@@ -16,7 +16,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/devmattei
 # bat
 dra download -i -s "bat-v{tag}-x86_64-unknown-linux-gnu.tar.gz" -o ~/.local/bin/ sharkdp/bat
 # delta
-dra download -i -s "delta-{tag}-x86_64-unknown-linux-gnu.tar.gz" -o ~/.local/bin/ dandavison/delta
+dra download -i -s "delta-{tag}-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ dandavison/delta
 # eza
 dra download -i -s "eza_x86_64-unknown-linux-gnu.tar.gz" -o ~/.local/bin/ eza-community/eza
 # fd
@@ -35,6 +35,9 @@ dra download -i -s "duckdb_cli-linux-amd64.zip" -o ~/.local/bin/ duckdb/duckdb
 dra download -i -s "zellij-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ zellij-org/zellij
 # presenterm
 dra download -i -s "presenterm-{tag}-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ mfontanini/presenterm
+# prek
+dra download -i -s "prek-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ j178/prek
+ln -sf ~/.local/bin/prek ~/.local/bin/pre-commit
 # tflint
 dra download -i -s "tflint_linux_amd64.zip" -o ~/.local/bin/ terraform-linters/tflint
 # tfsec
