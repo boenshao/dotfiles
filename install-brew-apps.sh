@@ -7,25 +7,29 @@ if ! command -v brew &>/dev/null ; then
 fi
 
 brew install \
-       bat \
-       delta \
-       duckdb \
-       eza \
-       fd \
-       ffmpeg \
-       fzf \
-       gh \
-       git \
-       hexyl \
-       jq \
-       neovim \
-       pfetch \
-       presenterm \
-       ripgrep \
-       sops \
-       tmux \
-       wget \
-       zellij
+        bat \
+        delta \
+        duckdb \
+        eza \
+        fd \
+        ffmpeg \
+        fzf \
+        gh \
+        git \
+        hexyl \
+        jq \
+        neovim \
+        pfetch \
+        presenterm \
+        ripgrep \
+        sops \
+        tmux \
+        wget \
+        zellij
+
+brew install --cask nikitabobko/tap/aerospace
+brew install --cask felixkratz/formulae/borders
+brew install --cask felixkratz/formulae/sketchybar
 
 # vim-plug
 # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \

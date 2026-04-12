@@ -1,0 +1,124 @@
+config-version = 2
+
+start-at-login = true
+after-startup-command = [
+  'exec-and-forget sketchybar',
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=6.0'
+]
+exec-on-workspace-change = ['/bin/bash', '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+automatically-unhide-macos-hidden-apps = true
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+persistent-workspaces = ['0', '1', '2', '3', '4', '5', '6']
+[workspace-to-monitor-force-assignment]
+  6 = 'secondary'
+
+accordion-padding = 30
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 6
+outer.bottom = 6
+outer.top = 8
+outer.right = 6
+
+[key-mapping]
+preset = 'qwerty'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+alt-r = ['flatten-workspace-tree', 'mode main']
+alt-f = ['layout floating tiling', 'mode main']
+alt-h = ['move left', 'mode main']
+alt-j = ['move down', 'mode main']
+alt-k = ['move up', 'mode main']
+alt-l = ['move right', 'mode main']
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+[mode.main.binding]
+alt-enter = 'mode service'
+
+alt-period = 'layout horizontal vertical'
+alt-comma = 'layout accordion tiles'
+alt-q = 'close'
+alt-m = 'fullscreen'
+
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+alt-shift-h = 'move-node-to-monitor prev --focus-follows-window'
+alt-shift-j = 'move-node-to-workspace next --focus-follows-window'
+alt-shift-k = 'move-node-to-workspace prev --focus-follows-window'
+alt-shift-l = 'move-node-to-monitor next --focus-follows-window'
+
+ctrl-alt-j = 'workspace next'
+ctrl-alt-k = 'workspace prev'
+ctrl-alt-l = 'focus-monitor --wrap-around next'
+ctrl-alt-h = 'focus-monitor --wrap-around prev'
+
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-tab = 'workspace-back-and-forth'
+
+# apps
+alt-a = '''exec-and-forget open -a Claude.app'''
+alt-e = '''exec-and-forget open -a Heptabase.app'''
+alt-f = '''exec-and-forget open -a Finder'''
+alt-b = '''exec-and-forget osascript -e '
+  set wasRunning to application "Safari" is running
+  tell application "Safari"
+    if wasRunning then
+      make new document at end of documents
+    end if
+    activate
+  end tell'
+  '''
+alt-t = '''exec-and-forget osascript -e '
+  set wasRunning to application "Ghostty" is running
+  tell application "Ghostty"
+    if wasRunning then
+      set newWin to new window
+      activate window newWin
+    else
+      activate
+    end if
+  end tell'
+  '''
+alt-c = '''exec-and-forget open -na "Visual Studio Code" --args -n'''
+alt-r = '''exec-and-forget open -a Reader'''
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'app.projectmeta.projectmeta'
+run = 'move-node-to-workspace 0'
+
+[[on-window-detected]]
+if.app-id = 'com.bitwarden.desktop'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'jp.naver.line.mac'
+run = [
+  'layout floating',
+  'exec-and-forget aerospace focus --window-id $(aerospace list-windows --monitor all --app-bundle-id jp.naver.line.mac --format "%{window-id}")',
+]
