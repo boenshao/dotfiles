@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -euo pipefail
 
 # user bin
@@ -35,6 +34,8 @@ dra download -i -s "duckdb_cli-linux-amd64.zip" -o ~/.local/bin/ duckdb/duckdb
 dra download -i -s "zellij-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ zellij-org/zellij
 # presenterm
 dra download -i -s "presenterm-{tag}-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ mfontanini/presenterm
+# zola
+dra download -i -s "zola-v{tag}-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ getzola/zola
 # prek
 dra download -i -s "prek-x86_64-unknown-linux-musl.tar.gz" -o ~/.local/bin/ j178/prek
 ln -sf ~/.local/bin/prek ~/.local/bin/pre-commit
@@ -55,10 +56,13 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 chmod +x kubectl
 mv ./kubectl ~/.local/bin/kubectl
 # TODO: gh
-# TODO: helm
+curl -fsSL https://get.helm.sh/helm-$(curl -fsSL https://get.helm.sh/helm-latest-version)-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
+tar -xzf helm-linux-amd64.tar.gz linux-amd64/helm
+mv linux-amd64/helm ~/.local/bin/helm
+rm -rf helm-linux-amd64.tar.gz linux-amd64
 
 # vim
 dra download -i -s "nvim-linux-x86_64.appimage" -o ~/.local/bin/ neovim/neovim
 # vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'

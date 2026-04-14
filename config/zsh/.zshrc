@@ -16,8 +16,8 @@ ZLE_RPROMPT_INDENT=0
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # download zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
-    mkdir -p "$(dirname $ZINIT_HOME)"
-    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 # load zinit
 source "${ZINIT_HOME}/zinit.zsh"
@@ -59,7 +59,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 # uv completions
 if check_cmd uv; then
-    eval "$(uv generate-shell-completion zsh)"
+  eval "$(uv generate-shell-completion zsh)"
 fi
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -77,7 +77,7 @@ fi
 
 export PF_INFO="ascii title os host kernel shell uptime palette"
 if check_cmd pfetch && ! is_in_vscode && ! is_in_vim && ! is_in_tmux && ! is_in_zellij; then
-    pfetch
+  pfetch
 fi
 
 # bat
@@ -92,38 +92,35 @@ source <(fzf --zsh)
 # alias
 alias rm="rm -i"
 if check_cmd nvim; then
-    alias vi="nvim"
-    alias vim="nvim"
-    export VISUAL="nvim"
-    export EDITOR="nvim"
+  alias vi="nvim"
+  alias vim="nvim"
+  export VISUAL="nvim"
+  export EDITOR="nvim"
 fi
 if check_cmd exa; then
-    alias ls="exa"
+  alias ls="exa"
 fi
 if check_cmd eza; then
-    alias ls="eza"
+  alias ls="eza"
 fi
 if check_cmd zoxide; then
-    eval "$(zoxide init zsh)"
+  eval "$(zoxide init zsh)"
 fi
 
 # python venv
 activate-closest-python-venv() {
-    if [ -n "$DISABLE_AUTO_VENV" ] || [ -n "$POETRY_ACTIVE" ]; then
-        return
-    fi
-
-    if [[ "$PWD" != "$HOME"* ]]; then
-        return
-    fi
-
-    declare -f deactivate > /dev/null && deactivate
-
-    check="$PWD"
-    while [ "$check" != $(realpath "$HOME/..") ]; do  # Check until home directory
-        [ -f "$check/.venv/bin/activate" ] && source "$check/.venv/bin/activate" && return
-        check=$(realpath "$check/..")
-    done
+  if [ -n "$DISABLE_AUTO_VENV" ] || [ -n "$POETRY_ACTIVE" ]; then
+    return
+  fi
+  if [[ "$PWD" != "$HOME"* ]]; then
+    return
+  fi
+  declare -f deactivate > /dev/null && deactivate
+  check="$PWD"
+  while [ "$check" != $(realpath "$HOME/..") ]; do  # Check until home directory
+    [ -f "$check/.venv/bin/activate" ] && source "$check/.venv/bin/activate" && return
+    check=$(realpath "$check/..")
+  done
 }
 add-zsh-hook chpwd activate-closest-python-venv
 activate-closest-python-venv

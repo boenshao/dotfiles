@@ -48,7 +48,7 @@ fonts=(
 
 mkdir -p "${install_dir}"
 for font in "${fonts[@]}"; do
-    wget "${repo}/${font}" -P "${install_dir}"
+  wget "${repo}/${font}" -P "${install_dir}"
 done
 
 fontconfig_dir="${XDG_CONFIG_HOME:-$HOME/.config}/fontconfig"

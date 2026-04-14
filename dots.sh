@@ -9,8 +9,8 @@ ln -snfv "${PWD}/home/.zshenv" "${HOME}/.zshenv"
 source "${HOME}/.zshenv"
 
 for d in config/*; do
-    n=$(basename "${d}")
-    ln -snfv "${PWD}/${d}" "${XDG_CONFIG_HOME}/${n}"
+  n=$(basename "${d}")
+  ln -snfv "${PWD}/${d}" "${XDG_CONFIG_HOME}/${n}"
 done
 
 mkdir -p "${ZCACHE}"

@@ -12,7 +12,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # golang
 [ -d "$HOME/.local/go/bin" ] && export PATH="$PATH:$HOME/.local/go/bin"
 if command -v go >/dev/null 2>&1; then
-    export PATH="$PATH:$(go env GOPATH)/bin"
+  export PATH="$PATH:$(go env GOPATH)/bin"
 fi
 
 # zig

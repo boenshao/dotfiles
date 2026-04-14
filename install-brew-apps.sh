@@ -3,29 +3,29 @@
 set -euo pipefail
 
 if ! command -v brew &>/dev/null ; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew install \
-        bat \
-        delta \
-        duckdb \
-        eza \
-        fd \
-        ffmpeg \
-        fzf \
-        gh \
-        git \
-        hexyl \
-        jq \
-        neovim \
-        pfetch \
-        presenterm \
-        ripgrep \
-        sops \
-        tmux \
-        wget \
-        zellij
+      bat \
+      delta \
+      duckdb \
+      eza \
+      fd \
+      ffmpeg \
+      fzf \
+      gh \
+      git \
+      hexyl \
+      jq \
+      neovim \
+      pfetch \
+      presenterm \
+      ripgrep \
+      sops \
+      tmux \
+      wget \
+      zellij
 
 brew install --cask nikitabobko/tap/aerospace
 brew install --cask felixkratz/formulae/borders
