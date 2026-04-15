@@ -3,7 +3,7 @@ config-version = 2
 start-at-login = true
 after-startup-command = [
   'exec-and-forget sketchybar',
-  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=6.0'
+  'exec-and-forget borders active_color=0xffb7a893 inactive_color=0x00000000 width=8.0'
 ]
 exec-on-workspace-change = ['/bin/bash', '-c',
   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
@@ -36,20 +36,20 @@ preset = 'qwerty'
 esc = ['reload-config', 'mode main']
 alt-r = ['flatten-workspace-tree', 'mode main']
 alt-f = ['layout floating tiling', 'mode main']
-alt-h = ['move left', 'mode main']
-alt-j = ['move down', 'mode main']
-alt-k = ['move up', 'mode main']
-alt-l = ['move right', 'mode main']
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+h = ['move left', 'mode main']
+j = ['move down', 'mode main']
+k = ['move up', 'mode main']
+l = ['move right', 'mode main']
+alt-h = ['join-with left', 'mode main']
+alt-j = ['join-with down', 'mode main']
+alt-k = ['join-with up', 'mode main']
+alt-l = ['join-with right', 'mode main']
 
 [mode.main.binding]
 alt-enter = 'mode service'
 
-alt-period = 'layout horizontal vertical'
-alt-comma = 'layout accordion tiles'
+alt-period = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
 alt-q = 'close'
 alt-m = 'fullscreen'
 
