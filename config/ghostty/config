@@ -13,6 +13,8 @@ window-padding-balance = true
 resize-overlay = never
 confirm-close-surface = false
 
+window-inherit-working-directory = false
+
 cursor-style = block
 bold-is-bright = true
 # gruvbox-material-hard-dark
