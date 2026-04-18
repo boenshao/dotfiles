@@ -64,8 +64,8 @@ alt-shift-l = 'move-node-to-monitor next --focus-follows-window'
 
 ctrl-alt-j = 'workspace next'
 ctrl-alt-k = 'workspace prev'
-ctrl-alt-l = 'focus-monitor --wrap-around next'
-ctrl-alt-h = 'focus-monitor --wrap-around prev'
+ctrl-alt-l = 'exec-and-forget aerospace focus-monitor --wrap-around next && [ "$(aerospace list-windows --focused --count)" != "1" ] && aerospace workspace-back-and-forth'
+ctrl-alt-h = 'exec-and-forget aerospace focus-monitor --wrap-around prev && [ "$(aerospace list-windows --focused --count)" != "1" ] && aerospace workspace-back-and-forth'
 
 alt-minus = 'resize smart -50'
 alt-equal = 'resize smart +50'
@@ -75,7 +75,6 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
-alt-tab = 'workspace-back-and-forth'
 
 # apps
 alt-a = '''exec-and-forget open -a Claude.app'''
