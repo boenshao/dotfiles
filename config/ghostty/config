@@ -1,4 +1,4 @@
-shell-integration-features = no-cursor,sudo,no-title
+shell-integration-features = no-cursor,sudo,no-title,ssh-env
 
 font-size = 16
 font-thicken = true
@@ -12,11 +12,11 @@ window-padding-y = 6
 window-padding-balance = true
 resize-overlay = never
 confirm-close-surface = false
-
 window-inherit-working-directory = false
+keybind = global:alt+backquote=toggle_quick_terminal
+keybind = global:alt+escape=toggle_quick_terminal
 
 cursor-style = block
-bold-is-bright = true
 # gruvbox-material-hard-dark
 # https://github.com/alacritty/alacritty-theme/blob/master/themes/gruvbox_material_hard_dark.toml
 background = #1d2021
