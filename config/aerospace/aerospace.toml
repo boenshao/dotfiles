@@ -3,11 +3,12 @@ config-version = 2
 start-at-login = false
 after-startup-command = [
   # 'exec-and-forget sketchybar',
-  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=8.0'
+  'trigger-binding --mode service enter'
 ]
-exec-on-workspace-change = ['/bin/bash', '-c',
-  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+# exec-on-workspace-change = [
+#   '/bin/bash', '-c',
+#   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+# ]
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -33,20 +34,23 @@ outer.right = 8
 preset = 'qwerty'
 
 [mode.service.binding]
-esc = ['reload-config', 'mode main']
-alt-r = ['flatten-workspace-tree', 'mode main']
-alt-f = ['layout floating tiling', 'mode main']
-h = ['move left', 'mode main']
-j = ['move down', 'mode main']
-k = ['move up', 'mode main']
-l = ['move right', 'mode main']
-alt-h = ['join-with left', 'mode main']
-alt-j = ['join-with down', 'mode main']
-alt-k = ['join-with up', 'mode main']
-alt-l = ['join-with right', 'mode main']
+enter = [
+    'exec-and-forget borders active_color=0xffd5c4a1 inactive_color=0xff3c3836 width=8.0', 
+    'mode main'
+]
+esc = ['reload-config', 'trigger-binding --mode service enter']
+f = 'layout floating tiling'
+h = 'move left'
+j = 'move down'
+k = 'move up'
+l = 'move right'
+alt-h = 'join-with left'
+alt-j = 'join-with down'
+alt-k = 'join-with up'
+alt-l = 'join-with right'
 
 [mode.main.binding]
-alt-enter = 'mode service'
+alt-enter = ['mode service', 'exec-and-forget borders active_color=0xffd65d0e']
 
 alt-period = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
