@@ -10,6 +10,7 @@ sudo apt install apt-transport-https curl wget gpg ca-certificates
 
 # dra
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/devmatteini/dra/refs/heads/main/install.sh | bash -s -- --to ~/.local/bin
+
 # jq
 dra download -i -s "jq-linux-amd64" -o ~/.local/bin/ jqlang/jq
 # bat
@@ -44,25 +45,30 @@ dra download -i -s "tflint_linux_amd64.zip" -o ~/.local/bin/ terraform-linters/t
 # tfsec
 dra download -i -s "tfsec-linux-amd64" -o ~/.local/bin/ aquasecurity/tfsec
 mv ~/.local/bin/tfsec-linux-amd64 ~/.local/bin/tfsec
+
 # awscli
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-./aws/install --bin-dir ~/.local/bin --install-dir ~/.local/aws-cli --update && rm -rf awscliv2.zip ./aws
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+  && unzip awscliv2.zip \
+  && ./aws/install --bin-dir ~/.local/bin --install-dir ~/.local/aws-cli --update \
+  && rm -rf awscliv2.zip ./aws
 # ecr-credential-helper
-wget https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.10.1/linux-amd64/docker-credential-ecr-login -P ~/.local/bin
-chmod +x ~/.local/bin/docker-credential-ecr-login
+wget https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.10.1/linux-amd64/docker-credential-ecr-login -P ~/.local/bin \
+  && chmod +x ~/.local/bin/docker-credential-ecr-login
 # kubectl
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-chmod +x kubectl
-mv ./kubectl ~/.local/bin/kubectl
-# TODO: gh
-curl -fsSL https://get.helm.sh/helm-$(curl -fsSL https://get.helm.sh/helm-latest-version)-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
-tar -xzf helm-linux-amd64.tar.gz linux-amd64/helm
-mv linux-amd64/helm ~/.local/bin/helm
-rm -rf helm-linux-amd64.tar.gz linux-amd64
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+  && chmod +x kubectl \
+  && mv ./kubectl ~/.local/bin/kubectl
+# heml
+curl -fsSL https://get.helm.sh/helm-$(curl -fsSL https://get.helm.sh/helm-latest-version)-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz \
+  && tar -xzf helm-linux-amd64.tar.gz linux-amd64/helm \
+  && mv linux-amd64/helm ~/.local/bin/helm \
+  && rm -rf helm-linux-amd64.tar.gz linux-amd64
 
 # vim
 dra download -i -s "nvim-linux-x86_64.appimage" -o ~/.local/bin/ neovim/neovim
 # vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# tmux-cssh
+wget -P ~/.local/bin https://raw.githubusercontent.com/peikk0/tmux-cssh/refs/heads/master/tmux-cssh && chmod +x ~/.local/bin/tmux-cssh
