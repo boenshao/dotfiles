@@ -19,7 +19,7 @@ fi
 [ -d "$HOME/.local/zig" ] && export PATH="$PATH:$HOME/.local/zig"
 
 # haskell
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
 # rust
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
@@ -27,3 +27,7 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# brew
+[ -x "/opt/homebrew/bin/brew" ] && \
+  eval "$(/opt/homebrew/bin/brew shellenv)"
