@@ -1,14 +1,7 @@
 config-version = 2
 
 start-at-login = false
-after-startup-command = [
-  # 'exec-and-forget sketchybar',
-  'trigger-binding --mode service enter'
-]
-# exec-on-workspace-change = [
-#   '/bin/bash', '-c',
-#   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-# ]
+after-startup-command = ['trigger-binding --mode service enter']
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -19,7 +12,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 persistent-workspaces = ['0', '1', '2', '3', '4', '5', '6']
 [workspace-to-monitor-force-assignment]
-  6 = 'secondary'
+6 = 'secondary'
 
 accordion-padding = 30
 [gaps]
@@ -35,41 +28,72 @@ preset = 'qwerty'
 
 [mode.service.binding]
 enter = [
-    'exec-and-forget borders active_color=0xffd5c4a1 inactive_color=0xff3c3836 width=8.0', 
-    'mode main'
+  'exec-and-forget borders active_color=0xffd5c4a1 inactive_color=0xff3c3836 width=8.0',
+  'mode main',
 ]
 esc = ['reload-config', 'trigger-binding --mode service enter']
 f = 'layout floating tiling'
-h = 'move left'
-j = 'move down'
-k = 'move up'
-l = 'move right'
+
+h = 'move left --boundaries all-monitors-outer-frame'
+j = '''
+exec-and-forget \
+aerospace move down --boundaries-action fail || \
+aerospace list-workspaces --monitor focused \
+  | aerospace move-node-to-workspace --focus-follows-window --stdin next
+'''
+k = '''
+exec-and-forget \
+aerospace move up --boundaries-action fail || \
+aerospace list-workspaces --monitor focused \
+  | aerospace move-node-to-workspace --focus-follows-window --stdin prev
+'''
+l = 'move right --boundaries all-monitors-outer-frame'
+
 alt-h = 'join-with left'
 alt-j = 'join-with down'
 alt-k = 'join-with up'
 alt-l = 'join-with right'
+
+f19 = '''
+exec-and-forget \
+[ "$(aerospace list-windows --focused --count)" != "1" ] && aerospace focus-monitor 1
+''' # move focus back to main monitor
+f20 = '''
+exec-and-forget \
+[ "$(aerospace list-windows --focused --count)" != "1" ] && aerospace workspace-back-and-forth
+''' # prevent focus into empty workspace
 
 [mode.main.binding]
 alt-enter = ['mode service', 'exec-and-forget borders active_color=0xffd65d0e']
 
 alt-period = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
-alt-q = 'close'
+alt-q = ['close', 'trigger-binding --mode service f19']
 alt-m = 'fullscreen'
 
-alt-h = 'focus left'
+alt-h = [
+  'focus left --boundaries all-monitors-outer-frame',
+  'trigger-binding --mode service f20'
+]
 alt-j = 'focus down'
 alt-k = 'focus up'
-alt-l = 'focus right'
-alt-shift-h = 'move-node-to-monitor prev --focus-follows-window'
-alt-shift-j = 'move-node-to-workspace next --focus-follows-window'
-alt-shift-k = 'move-node-to-workspace prev --focus-follows-window'
-alt-shift-l = 'move-node-to-monitor next --focus-follows-window'
+alt-l = [
+  'focus right --boundaries all-monitors-outer-frame',
+  'trigger-binding --mode service f20'
+]
+alt-shift-h = 'trigger-binding --mode service h'
+alt-shift-j = 'trigger-binding --mode service j'
+alt-shift-k = 'trigger-binding --mode service k'
+alt-shift-l = 'trigger-binding --mode service l'
+ctrl-alt-shift-h = 'trigger-binding --mode service alt-h'
+ctrl-alt-shift-j = 'trigger-binding --mode service alt-j'
+ctrl-alt-shift-k = 'trigger-binding --mode service alt-k'
+ctrl-alt-shift-l = 'trigger-binding --mode service alt-l'
 
+ctrl-alt-h = ['focus-monitor prev', 'trigger-binding --mode service f20']
 ctrl-alt-j = 'workspace next'
 ctrl-alt-k = 'workspace prev'
-ctrl-alt-l = 'exec-and-forget aerospace focus-monitor --wrap-around next && [ "$(aerospace list-windows --focused --count)" != "1" ] && aerospace workspace-back-and-forth'
-ctrl-alt-h = 'exec-and-forget aerospace focus-monitor --wrap-around prev && [ "$(aerospace list-windows --focused --count)" != "1" ] && aerospace workspace-back-and-forth'
+ctrl-alt-l = ['focus-monitor next', 'trigger-binding --mode service f20']
 
 alt-minus = 'resize smart -50'
 alt-equal = 'resize smart +50'
@@ -81,9 +105,9 @@ alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
 
 # apps
-alt-a = '''exec-and-forget open -a Claude.app'''
-alt-e = '''exec-and-forget open -a Heptabase.app'''
-alt-f = '''exec-and-forget open -a Finder'''
+alt-a = 'exec-and-forget open -a Claude.app'
+alt-e = 'exec-and-forget open -a Heptabase.app'
+alt-f = 'exec-and-forget open -a Finder'
 alt-b = '''exec-and-forget osascript -e '
   set wasRunning to application "Safari" is running
   tell application "Safari"
@@ -104,12 +128,12 @@ alt-t = '''exec-and-forget osascript -e '
     end if
   end tell'
   '''
-alt-c = '''exec-and-forget open -na "Visual Studio Code" --args -n'''
-alt-r = '''exec-and-forget open -a Reader'''
+alt-c = 'exec-and-forget open -na "Visual Studio Code" --args -n'
+alt-r = 'exec-and-forget open -a Reader'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = ['layout floating']
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'app.projectmeta.projectmeta'
@@ -117,11 +141,13 @@ run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.bitwarden.desktop'
-run = ['layout floating']
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'jp.naver.line.mac'
-run = [
-  'layout floating',
-  'exec-and-forget aerospace focus --window-id $(aerospace list-windows --monitor all --app-bundle-id jp.naver.line.mac --format "%{window-id}")',
-]
+run = '''
+exec-and-forget \
+aerospace layout floating && \
+aerospace focus --window-id \
+  $(aerospace list-windows --monitor all --app-bundle-id jp.naver.line.mac --format "%{window-id}")
+'''
