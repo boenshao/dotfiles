@@ -28,25 +28,23 @@ preset = 'qwerty'
 
 [mode.service.binding]
 enter = [
-  'exec-and-forget borders active_color=0xffd5c4a1 inactive_color=0xff3c3836 width=8.0',
   'mode main',
+  'exec-and-forget borders active_color=0xffd5c4a1 inactive_color=0xff3c3836 width=8.0',
 ]
 esc = ['reload-config', 'trigger-binding --mode service enter']
 f = 'layout floating tiling'
 
 h = 'move left --boundaries all-monitors-outer-frame'
-j = '''
-exec-and-forget \
-aerospace move down --boundaries-action fail || \
-aerospace list-workspaces --monitor focused \
-  | aerospace move-node-to-workspace --focus-follows-window --stdin next
-'''
-k = '''
-exec-and-forget \
-aerospace move up --boundaries-action fail || \
-aerospace list-workspaces --monitor focused \
-  | aerospace move-node-to-workspace --focus-follows-window --stdin prev
-'''
+j = """exec-and-forget \
+  aerospace move down --boundaries-action fail || \
+  aerospace list-workspaces --monitor focused \
+    | aerospace move-node-to-workspace --focus-follows-window --stdin next
+  """
+k = """exec-and-forget \
+  aerospace move up --boundaries-action fail || \
+  aerospace list-workspaces --monitor focused \
+    | aerospace move-node-to-workspace --focus-follows-window --stdin prev
+  """
 l = 'move right --boundaries all-monitors-outer-frame'
 
 alt-h = 'join-with left'
@@ -54,14 +52,14 @@ alt-j = 'join-with down'
 alt-k = 'join-with up'
 alt-l = 'join-with right'
 
-f19 = '''
-exec-and-forget \
-[ "$(aerospace list-windows --focused --count)" != "1" ] && aerospace focus-monitor 1
-''' # move focus back to main monitor
-f20 = '''
-exec-and-forget \
-[ "$(aerospace list-windows --focused --count)" != "1" ] && aerospace workspace-back-and-forth
-''' # prevent focus into empty workspace
+f19 = """exec-and-forget \
+  [ "$(aerospace list-windows --focused --count)" != "1" ] && \
+    aerospace focus-monitor 1
+  """ # move focus back to main monitor
+f20 = """exec-and-forget \
+  [ "$(aerospace list-windows --focused --count)" != "1" ] && \
+    aerospace workspace-back-and-forth
+  """ # prevent focus into empty workspace
 
 [mode.main.binding]
 alt-enter = ['mode service', 'exec-and-forget borders active_color=0xffd65d0e']
@@ -73,13 +71,13 @@ alt-m = 'fullscreen'
 
 alt-h = [
   'focus left --boundaries all-monitors-outer-frame',
-  'trigger-binding --mode service f20'
+  'trigger-binding --mode service f20',
 ]
 alt-j = 'focus down'
 alt-k = 'focus up'
 alt-l = [
   'focus right --boundaries all-monitors-outer-frame',
-  'trigger-binding --mode service f20'
+  'trigger-binding --mode service f20',
 ]
 alt-shift-h = 'trigger-binding --mode service h'
 alt-shift-j = 'trigger-binding --mode service j'
@@ -108,26 +106,26 @@ alt-5 = 'workspace 5'
 alt-a = 'exec-and-forget open -a Claude.app'
 alt-e = 'exec-and-forget open -a Heptabase.app'
 alt-f = 'exec-and-forget open -a Finder'
-alt-b = '''exec-and-forget osascript -e '
+alt-b = """exec-and-forget osascript -e '
   set wasRunning to application "Safari" is running
   tell application "Safari"
     if wasRunning then
-      make new document at end of documents
+      make new document
     end if
     activate
-  end tell'
-  '''
-alt-t = '''exec-and-forget osascript -e '
+  end tell
+  '"""
+alt-t = """exec-and-forget osascript -e '
   set wasRunning to application "Ghostty" is running
   tell application "Ghostty"
-    if wasRunning then
-      set newWin to new window
-      activate window newWin
-    else
-      activate
-    end if
-  end tell'
-  '''
+  if wasRunning then
+    set newWin to new window
+    activate window newWin
+  else
+    activate
+  end if
+  end tell
+  '"""
 alt-c = 'exec-and-forget open -na "Visual Studio Code" --args -n'
 alt-r = 'exec-and-forget open -a Reader'
 
@@ -145,9 +143,10 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'jp.naver.line.mac'
-run = '''
-exec-and-forget \
-aerospace layout floating && \
-aerospace focus --window-id \
-  $(aerospace list-windows --monitor all --app-bundle-id jp.naver.line.mac --format "%{window-id}")
-'''
+run = [
+  'layout floating',
+  """exec-and-forget \
+  aerospace focus --window-id \
+    $(aerospace list-windows --monitor all --app-bundle-id jp.naver.line.mac --format "%{window-id}")
+  """,
+]
