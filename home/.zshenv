@@ -27,3 +27,8 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# brew
+if command -v brew &>/dev/null ; then
+  eval "$(brew shellenv)"
+fi

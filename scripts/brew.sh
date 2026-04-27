@@ -7,6 +7,7 @@ if ! command -v brew &>/dev/null ; then
 fi
 
 brew install \
+      awscli \
       bat \
       delta \
       duckdb \
@@ -27,9 +28,26 @@ brew install \
       wget \
       zellij
 
+brew install --cask \
+      appcleaner \
+      brave-browser \
+      dbeaver-community \
+      devtoys \
+      ghostty \
+      logi-options+ \
+      raycast \
+      reader \
+      stats \
+      visual-studio-code \
+      vlc
+
+brew install --cask \
+      claude \
+      claude-code \
+      slack
+
 brew install --cask nikitabobko/tap/aerospace
 brew install --cask felixkratz/formulae/borders
-brew install --cask felixkratz/formulae/sketchybar
 
 # vim-plug
 # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \

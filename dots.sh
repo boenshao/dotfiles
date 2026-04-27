@@ -8,6 +8,7 @@ ln -snfv "${PWD}/home/.zshenv" "${HOME}/.zshenv"
 # shellcheck disable=SC1091
 source "${HOME}/.zshenv"
 
+mkdir -p "${XDG_CONFIG_HOME}"
 for d in config/*; do
   n=$(basename "${d}")
   ln -snfv "${PWD}/${d}" "${XDG_CONFIG_HOME}/${n}"
