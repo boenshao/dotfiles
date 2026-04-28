@@ -143,9 +143,9 @@ alt-s = 'exec-and-forget open -a Slack'
 if.app-id = 'com.apple.finder'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'app.projectmeta.projectmeta'
-run = 'move-node-to-workspace 0'
+# [[on-window-detected]]
+# if.app-id = 'app.projectmeta.projectmeta'
+# run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
