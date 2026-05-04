@@ -1,6 +1,6 @@
 config-version = 2
 
-start-at-login = false
+start-at-login = true
 after-startup-command = ['trigger-binding --mode service enter']
 
 enable-normalization-flatten-containers = true
