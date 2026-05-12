@@ -67,7 +67,6 @@ alt-enter = ['mode service', 'exec-and-forget borders active_color=0xffd65d0e']
 alt-period = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 alt-q = ['close', 'trigger-binding --mode service f19']
-alt-m = 'fullscreen'
 
 alt-h = [
   'focus left --boundaries all-monitors-outer-frame',
@@ -138,6 +137,7 @@ alt-t = """exec-and-forget osascript -e '
 alt-c = 'exec-and-forget open -na "Visual Studio Code" --args -n'
 alt-r = 'exec-and-forget open -a Reader'
 alt-s = 'exec-and-forget open -a Slack'
+alt-m = 'exec-and-forget open -a "YT Music.app"'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -153,6 +153,15 @@ run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.bitwarden.desktop'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'cc.ffitch.shottr'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.henrikruscon.Alcove'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.chabomakers.Antinote'
 run = 'layout floating'
 
 [[on-window-detected]]
