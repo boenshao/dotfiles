@@ -35,6 +35,7 @@ zinit snippet OMZ::lib/directories.zsh
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zdharma-continuum/fast-syntax-highlighting
+zle_highlight=('paste:none')
 
 # load completions
 mkdir -p $ZSH_CACHE_DIR/completions
@@ -119,3 +120,5 @@ activate-closest-python-venv
 
 # load local config
 [ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
+
+. "$HOME/.local/share/../bin/env"
