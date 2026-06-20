@@ -2,67 +2,119 @@ tap "felixkratz/formulae"
 tap "hashicorp/tap"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
+# Official Amazon AWS command-line interface
 brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# Pack, ship and run any application as a lightweight container
 brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
 brew "docker-buildx"
+# Isolated development environments using Docker
 brew "docker-compose"
+# Embeddable SQL OLAP Database Management System
 brew "duckdb"
+# Modern, maintained replacement for ls
 brew "eza"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
 brew "gh"
+# Distributed revision control system
 brew "git"
+# Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Command-line hex viewer
 brew "hexyl"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Mac App Store command-line interface
 brew "mas"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Pretty system information tool written in Rust
 brew "pfetch-rs"
+# Terminal slideshow tool
 brew "presenterm"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Editor of encrypted files
 brew "sops"
+# Static analysis security scanner for your terraform code
 brew "tfsec"
+# Terminal multiplexer
 brew "tmux"
+# Internet file retriever
 brew "wget"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
+# Programming language designed for robustness, optimality, and clarity
 brew "zig"
-brew "felixkratz/formulae/borders"
-brew "hashicorp/tap/terraform"
+# AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
+# Utility to add Dynamic Island like features to notch area
 cask "alcove"
+# Redis desktop manager
 cask "another-redis-desktop-manager"
+# Temporary notes with calculations and extensible features
 cask "antinote"
+# Application uninstaller
 cask "appcleaner"
+# Display management tool
 cask "betterdisplay"
+# Web browser focusing on privacy
 cask "brave-browser"
+# Anthropic's official Claude AI desktop app
 cask "claude"
+# Terminal-based AI coding assistant
 cask "claude-code"
-cask "coteditor"
+# Universal database tool and SQL client
 cask "dbeaver-community"
+# Utilities designed to make common development tasks easier
 cask "devtoys"
 cask "font-caskaydia-cove-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Free and open-source media player
 cask "iina"
+# Tool to prevent the system from going into sleep mode
 cask "keepingyouawake"
+# Open-source keystroke visualiser
 cask "keycastr"
+# App to manage software development and track bugs
+cask "linear"
+# Software for Logitech devices
 cask "logi-options+"
+# Add more gestures for Trackpad and Magic Mouse
 cask "multitouch"
+# Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
+# Client program for the OpenVPN Access Server
 cask "openvpn-connect"
+# Control your tools with a few keystrokes
 cask "raycast"
+# Save articles to read, highlight key content, and organise notes for review
 cask "reader"
+# Screenshot measurement and annotation tool
 cask "shottr"
+# Team communication and collaboration software
 cask "slack"
-cask "stats"
+# Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
 cask "vlc"
 mas "Bitwarden", id: 1352778147
 mas "Dark Reader for Safari", id: 1438243180
 mas "Hush", id: 1544743900
 mas "LINE", id: 539883307
+mas "RunCat", id: 1429033973
 mas "Save to Reader", id: 1640236961
 mas "uBlock Origin Lite", id: 6745342698
