@@ -16,6 +16,7 @@ resize-overlay = never
 confirm-close-surface = false
 window-inherit-working-directory = false
 quick-terminal-screen = macos-menu-bar
+quick-terminal-size=50%
 keybind = global:alt+backquote=toggle_quick_terminal
 keybind = global:alt+escape=toggle_quick_terminal
 
