@@ -1,5 +1,7 @@
 tap "felixkratz/formulae"
+tap "findyourexit/tap"
 tap "hashicorp/tap"
+tap "netbirdio/tap"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
 # Official Amazon AWS command-line interface
@@ -7,7 +9,7 @@ brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Container runtimes on MacOS (and Linux) with minimal setup
-brew "colima"
+brew "colima", restart_service: :changed
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Docker CLI plugin for extended build capabilities with BuildKit
@@ -20,22 +22,30 @@ brew "duckdb"
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# SDL2 compatibility layer that uses SDL3 behind the scenes
+brew "sdl2-compat"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
+# Highest-quality GIF encoder based on pngquant
+brew "gifski"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Fast linters runner for Go
+brew "golangci-lint"
 # Command-line hex viewer
 brew "hexyl"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Handy way to save and run project-specific commands
+brew "just"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -58,8 +68,18 @@ brew "wget"
 brew "zellij"
 # Programming language designed for robustness, optimality, and clarity
 brew "zig"
+# A window border system for macOS
+brew "felixkratz/formulae/borders", trusted: true
+# Terminal UI for comparing multiple time zones side by side
+brew "findyourexit/tap/ztl", trusted: true
+# Terraform
+brew "hashicorp/tap/terraform", trusted: true
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun", trusted: true
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
+cask "nikitabobko/tap/aerospace", trusted: true
 # Utility to add Dynamic Island like features to notch area
 cask "alcove"
 # Redis desktop manager
@@ -78,8 +98,6 @@ cask "claude"
 cask "claude-code"
 # Universal database tool and SQL client
 cask "dbeaver-community"
-# Utilities designed to make common development tasks easier
-cask "devtoys"
 cask "font-caskaydia-cove-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
@@ -95,6 +113,8 @@ cask "linear"
 cask "logi-options+"
 # Add more gestures for Trackpad and Magic Mouse
 cask "multitouch"
+# Visualiser for neural network, deep learning, and machine learning models
+cask "netron"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
 # Client program for the OpenVPN Access Server
@@ -103,6 +123,8 @@ cask "openvpn-connect"
 cask "raycast"
 # Save articles to read, highlight key content, and organise notes for review
 cask "reader"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
 # Screenshot measurement and annotation tool
 cask "shottr"
 # Team communication and collaboration software
@@ -111,10 +133,10 @@ cask "slack"
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
+mas "1Password for Safari", id: 1569813296
 mas "Bitwarden", id: 1352778147
 mas "Dark Reader for Safari", id: 1438243180
 mas "Hush", id: 1544743900
-mas "LINE", id: 539883307
-mas "RunCat", id: 1429033973
+mas "RunCatNeo", id: 6757801838
 mas "Save to Reader", id: 1640236961
 mas "uBlock Origin Lite", id: 6745342698
