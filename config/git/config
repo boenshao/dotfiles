@@ -5,9 +5,10 @@
 [core]
     editor = nvim
     pager = delta
+    ignorecase = false
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [diff]
     colorMoved = default
@@ -16,7 +17,7 @@
     conflictStyle = zdiff3
 
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
 
 [interactive]
     diffFilter = delta --color-only
